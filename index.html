@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#245edb">
+  <title>BOREDOM XP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="boot" class="boot-screen">
+    <div class="boot-logo"><span class="flag"><i></i><i></i><i></i><i></i></span><span><b>Microsoft</b><small>Windows XP</small></span></div>
+    <div class="boot-loading"><div></div></div>
+    <p>Copyright © 2026 BOREDOM XP Corporation</p>
+    <button id="bootButton" class="boot-button">▶ Start BOREDOM XP</button>
+    <small class="boot-hint">Click to boot • sound starts after your click</small>
+  </div>
+
+  <main id="desktop" class="desktop hidden">
+    <div class="desktop-icons">
+      <button class="desktop-icon" data-open="games"><span class="desk-emoji">🎮</span><span>Games</span></button>
+      <button class="desktop-icon" data-open="present"><span class="desk-emoji">🛒</span><span>Present Panic!</span></button>
+      <button class="desktop-icon" data-open="achievements"><span class="desk-emoji">🏆</span><span>Achievements</span></button>
+      <button class="desktop-icon" data-open="notepad"><span class="desk-emoji">📝</span><span>Notepad</span></button>
+      <button class="desktop-icon" data-open="recycle"><span class="desk-emoji">🗑️</span><span>Recycle Bin</span></button>
+    </div>
+
+    <section id="welcomeWindow" class="window welcome-window">
+      <header class="titlebar"><span>🖥️ BOREDOM XP - Welcome</span><button class="win-close" data-close="welcomeWindow">×</button></header>
+      <div class="welcome-content">
+        <div class="welcome-banner"><div class="welcome-mark">XP</div><div><h1>Welcome to BOREDOM XP!</h1><p>Your cure for having absolutely nothing to do.</p></div></div>
+        <p>Welcome, user. Your computer is technically functioning. Probably.</p>
+        <div class="welcome-actions"><button class="xp-button" data-open="present">🛒 Play Present Panic!</button><button class="xp-button secondary" data-open="games">Browse games</button></div>
+        <small>Tip: Double-click desktop icons. Press Start for more questionable software.</small>
+      </div>
+    </section>
+
+    <div id="startMenu" class="start-menu hidden">
+      <div class="start-user"><span>🙂</span><b>BOREDOM USER</b></div>
+      <button data-open="present">🛒 <b>Present Panic!</b><small>Birthday emergency simulator</small></button>
+      <button data-open="games">🎮 <b>All Games</b><small>Extremely important entertainment</small></button>
+      <button data-open="achievements">🏆 <b>Achievements</b></button>
+      <button data-open="notepad">📝 <b>Notepad</b></button>
+      <div class="start-bottom"><button id="shutdown">⏻ Turn Off Computer</button></div>
+    </div>
+
+    <footer class="taskbar">
+      <button id="startButton" class="start-button"><span class="start-orb">✿</span> start</button>
+      <div id="taskApps" class="task-apps"></div>
+      <div class="tray"><span>🔊</span><span id="clock">12:00 PM</span></div>
+    </footer>
+    <div id="toast" class="toast hidden"></div>
+  </main>
+
+  <div id="gameWindow" class="window game-window hidden">
+    <header class="titlebar"><span>🛒 Present Panic! - BOREDOM XP Games</span><div class="window-controls"><button data-minimize="gameWindow">_</button><button data-close="gameWindow">×</button></div></header>
+    <div class="game-shell">
+      <div class="game-heading"><div><h2>PRESENT PANIC!</h2><p>THE PARTY STARTS SOON. YOU HAVE MADE A TERRIBLE MISTAKE.</p></div><div class="panic-stamp">URGENT!</div></div>
+      <div class="game-toolbar">
+        <label>Mode <select id="modeSelect"><option value="missions">Birthday missions</option><option value="endless">Endless shopping</option></select></label>
+        <button id="newGame" class="xp-button">↻ New run</button>
+        <div class="stat"><small>TIME</small><b id="timer">03:00</b></div>
+        <div class="stat"><small>ITEMS</small><b id="itemCount">0 / 1</b></div>
+      </div>
+      <div class="game-layout">
+        <div class="canvas-wrap">
+          <canvas id="game" width="900" height="590" aria-label="Top-down cartoon department store game"></canvas>
+          <div id="gameOverlay" class="game-overlay">
+            <div class="overlay-card"><div class="big-emoji">🎁</div><h2>OH NO. A BIRTHDAY.</h2><p>You forgot to buy a present. The party is in 3 minutes. Find the item using the store signs, avoid customers, and reach the checkout!</p><button id="playButton" class="xp-button">LET'S PANIC</button></div>
+          </div>
+        </div>
+        <aside class="game-sidebar">
+          <div class="side-card mission-card"><h3>📋 YOUR MISSION</h3><div id="missionText">Find a romantic novel for your sister.</div><div class="budget">Budget: <b id="budget">299 Kč</b></div></div>
+          <div class="side-card"><h3>🪧 STORE DIRECTORY</h3><p class="side-note">Read the signs. The item is NOT marked for you.</p><div class="sign-list"><span>📚 LITERATURE</span><span>🎮 ELECTRONICS</span><span>🧸 TOYS</span><span>💄 COSMETICS</span><span>🏠 HOME & GARDEN</span><span>⚽ SPORTS</span><span>🥫 FOOD & DRINKS</span><span>👕 CLOTHING</span></div></div>
+          <div class="side-card"><h3>⌨️ CONTROLS</h3><p><b>WASD / arrows</b> Move<br><b>SHIFT</b> Sprint<br><b>E</b> Pick up / checkout</p><p id="status" class="status">Ready when you are.</p></div>
+        </aside>
+      </div>
+      <div class="game-bottom"><span>⚠️ Customers have absolutely no spatial awareness.</span><span>BOREDOM XP • PRESENT PANIC! v0.1</span></div>
+    </div>
+  </div>
+
+  <div id="simpleWindow" class="window simple-window hidden">
+    <header class="titlebar"><span id="simpleTitle">BOREDOM XP</span><button class="win-close" data-close="simpleWindow">×</button></header>
+    <div id="simpleContent" class="simple-content"></div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
